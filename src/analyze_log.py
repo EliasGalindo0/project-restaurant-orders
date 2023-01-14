@@ -50,6 +50,7 @@ def write_file(target_path, data):
         file_w.write(f"{item}\n")
     file_w.close()
 
+
 def analyze_log(path_to_file):
     if not path_to_file.endswith(".csv"):
         raise FileNotFoundError(f"Extensão inválida: '{path_to_file}'")
@@ -59,7 +60,7 @@ def analyze_log(path_to_file):
                 *csv.DictReader(file, fieldnames=["client", "dish", "weekday"])
             ]
     except FileNotFoundError:
-        raise FileNotFoundError(f"Arquivo inexistente: '{path_to_file}'") 
+        raise FileNotFoundError(f"Arquivo inexistente: '{path_to_file}'")
 
     data = read_file(path_to_file)
     data_maria = data_clients("maria", data)
